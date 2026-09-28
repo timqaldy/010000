@@ -1,0 +1,36 @@
+---
+description: Load 010000.kz context in a fixed cheap order
+alwaysApply: true
+---
+
+# Context protocol
+
+```
+MASTER_PROMPT.md
+PRD.md              once per session, never again
+PROJECT_STATE.md
+TASK.md
+ARCHITECTURE.md     only if the task changes structure
+```
+
+Then: code → test → update `PROJECT_STATE.md` → STOP.
+
+`AGENTS.md` is the index. Do not hunt for another spec. Do not reread the full PRD after the first pass.
+
+## Do not
+
+- Improve the whole project. Do only `TASK.md`.
+- Search parent folders, OneDrive, Claude Projects, `.claude`, or Task Master
+- Read `node_modules/**`, `.next/**`, lockfiles, or all of `data/sources.json` unless the task edits seeds
+- Build newsroom, AI, scrapers, scheduler, auth, or a database unless `TASK.md` says so
+
+## Do
+
+- If `TASK.md` is `idle`, stop and wait
+- Prefer `Grep` / targeted `Read`
+- Reuse files already read in this chat
+
+```text
+❌ BAD: reread PRD.md, then wander the repo
+✅ GOOD: MASTER → STATE → TASK → one code file
+```

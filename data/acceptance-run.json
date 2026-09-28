@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "scope": "local-autonomy-72h",
+  "started_at": "2026-09-12T19:37:27.887Z",
+  "required_hours": 72,
+  "minimum_samples": 70,
+  "status": "failed",
+  "samples": [
+    {
+      "checked_at": "2026-09-12T19:37:27.887Z",
+      "ok": true,
+      "mode": "live",
+      "live_sources": "2/5",
+      "raw_items": 17,
+      "events": 17,
+      "published_events": 3,
+      "collection_runs": 3,
+      "collection_age_minutes": 1.7,
+      "failures": []
+    },
+    {
+      "checked_at": "2026-09-12T19:45:47.022Z",
+      "ok": true,
+      "mode": "live",
+      "live_sources": "2/5",
+      "raw_items": 17,
+      "events": 17,
+      "published_events": 3,
+      "collection_runs": 4,
+      "collection_age_minutes": 0.3,
+      "failures": []
+    },
+    {
+      "checked_at": "2026-09-12T19:47:09.642Z",
+      "ok": true,
+      "mode": "live",
+      "live_sources": "2/5",
+      "raw_items": 17,
+      "events": 17,
+      "published_events": 3,
+      "collection_runs": 4,
+      "collection_age_minutes": 1.7,
+      "failures": []
+    },
+    {
+      "checked_at": "2026-09-16T14:05:41.005Z",
+      "ok": true,
+      "base_url": "http://127.0.0.1:3100",
+      "mode": "live",
+      "live_sources": "2/5",
+      "raw_items": 17,
+      "events": 17,
+      "published_events": 3,
+      "collection_runs": 8,
+      "collection_age_minutes": 2.3,
+      "failures": []
+    }
+  ],
+  "last_checked_at": "2026-09-16T14:05:41.005Z",
+  "finished_at": "2026-09-16T14:05:41.005Z"
+}

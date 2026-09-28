@@ -1,0 +1,30 @@
+---
+description: Source Registry invariants and seed rules
+globs: data/sources.json,src/lib/sources/**/*.ts,tests/source-registry.test.ts
+alwaysApply: false
+---
+
+# Source Registry
+
+Change registry files only. Do not add scrapers, fetchers, or a database here.
+
+## Required fields
+
+`source_id`, `name`, `canonical_url`, `category`, `owner`, `official`, `fetch_method`, `priority`, `enabled`, `robots_status`, `terms_url`, `reuse_status`, `allowed_fields`, `fulltext_storage_allowed`, `image_reuse_allowed`, `commercial_use_status`, `attribution_required`, `fetch_interval_minutes`, `confidence_weight`, `last_reviewed_at`, `notes`
+
+## Rules
+
+- `source_id` is unique kebab-case
+- `canonical_url` must be `http`/`https`
+- `reuse_status` is only `OPEN` | `FACTS_ONLY` | `LICENSED` | `REVIEW_REQUIRED` | `PROHIBITED`
+- If `reuse_status=PROHIBITED`, `enabled` must be `false` (`canEnable` / `withEnabled`)
+- Uncertain permission → `REVIEW_REQUIRED`. Do not mark `LICENSED`/`OPEN` without evidence
+- Telegram, Yandex Maps, 2GIS stay `PROHIBITED` and disabled
+
+```ts
+// ❌ BAD
+{ reuse_status: "PROHIBITED", enabled: true }
+
+// ✅ GOOD
+{ reuse_status: "PROHIBITED", enabled: false }
+```
